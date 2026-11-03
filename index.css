@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/* Register your custom TTF font locally */
+@font-face {
+  font-family: 'StrangerThings';
+  src: url('./assets/fonts/Stranger Things.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --stranger-red: #e50914;
+    --stranger-glow-red: #ff1e27;
+    --stranger-crimson: #8b0000;
+  }
+
+  body {
+    background-color: #050507;
+    color: #e2e8f0;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #09090b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #7f1d1d;
+    border-radius: 2px;
+  }
+}
+
+/* Use your custom TTF font class */
+.font-stranger {
+  font-family: 'StrangerThings', 'Cinzel Decorative', serif;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+/* Stranger Things Glowing Red Logo */
+.stranger-glow-text {
+  color: #ec1313;
+  text-shadow:
+    0 0 2px #fdfafa,
+    0 0 10px #624d4d,
+    0 0 20px #3a2122,
+    0 0 35px #b30000,
+    0 0 60px #e61a1a;
+}
+
+.font-creepy {
+  font-family: 'Creepster', cursive;
+}
+
+.font-terminal {
+  font-family: 'VT323', monospace;
+}
+
+.font-arcade {
+  font-family: 'Press Start 2P', monospace;
+}
+
+.font-dossier {
+  font-family: 'Special Elite', monospace;
+}
+
+/* Stranger Things Glowing Red Logo & Interlocking Title Effect */
+.stranger-glow-text {
+  color: #e0e0e0;
+  text-shadow:
+   0 0 2px #e3dada, 0 0 10px #000000, 0 0 20px #421517, 0 0 35px #3b1818, 0 0 60px #161010
+}
+
+/* Classic Stranger Things 80s Horizontal framing lines */
+.stranger-boxed-title {
+  position: relative;
+  display: inline-block;
+}
+.stranger-boxed-title::before,
+.stranger-boxed-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #e50914;
+  box-shadow: 0 0 10px #ff2a2a;
+}
+.stranger-boxed-title::before {
+  top: -10px;
+}
+.stranger-boxed-title::after {
+  bottom: -10px;
+}
+
+.stranger-title-bar {
+  box-shadow: 
+    0 0 8px #ff2a2a,
+    0 0 16px #e50914,
+    0 0 30px #990000;
+}
+
+/* Subtle 80s CRT Scanline Layer */
+.crt-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.3) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Christmas Light Bulbs */
+.bulb-glow-red {
+  box-shadow: 0 0 15px #ef4444, 0 0 30px #dc2626;
+}
+.bulb-glow-yellow {
+  box-shadow: 0 0 15px #eab308, 0 0 30px #ca8a04;
+}
+.bulb-glow-blue {
+  box-shadow: 0 0 15px #3b82f6, 0 0 30px #2563eb;
+}
+.bulb-glow-green {
+  box-shadow: 0 0 15px #22c55e, 0 0 30px #16a34a;
+}
+.bulb-glow-purple {
+  box-shadow: 0 0 15px #a855f7, 0 0 30px #9333ea;
+}
+.bulb-glow-white {
+  box-shadow: 0 0 15px #f8fafc, 0 0 30px #cbd5e1;
+}
+
+/* Upside Down Atmospheric Tint */
+.upside-down-mode {
+  filter: contrast(110%) hue-rotate(330deg) saturate(130%);
+}
+
+/* Subtle electric flicker animation */
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 1;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.35;
+  }
+}
+
+.animate-flicker {
+  animation: flicker 4s infinite;
+}
+
+@keyframes floatSpore {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-50px) translateX(15px) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100px) translateX(-10px) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+.spore-particle {
+  animation: floatSpore 8s ease-in-out infinite;
+}
